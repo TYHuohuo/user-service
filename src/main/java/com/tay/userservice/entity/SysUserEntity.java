@@ -1,7 +1,5 @@
 package com.tay.userservice.entity;
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -20,6 +18,8 @@ import java.util.Date;
 @TableName("sys_user")
 public class SysUserEntity extends BaseEntity {
 	private static final long serialVersionUID = 1L;
+	@TableId
+	private Long id;
 	/**
 	 * 用户名
 	 */
@@ -75,5 +75,14 @@ public class SysUserEntity extends BaseEntity {
 	 */
 	@TableField(exist=false)
 	private String deptName;
+
+	@TableField
+	private String address;
+
+	/**
+	 * 删除标志  0：未删除   1：删除
+	 */
+	@TableLogic
+	private Integer deleted;
 
 }
